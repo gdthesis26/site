@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Haotian Shen — RESIST Exhibition</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,700;1,400&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- Nav -->
+  <button class="menu-btn" aria-label="Open menu" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </button>
+ <div class="drawer" role="navigation">
+    <h2>Exhibitors</h2>
+    <nav>
+      <a href="index.html" class="active">← Home</a>
+      <a href="lannie.html">Lannie Hong</a>
+      <a href="anny.html">Anny Long</a>
+      <a href="nina.html">Nina Mayne</a>
+      <a href="vivan.html">Vivan Nadkarni</a>
+      <a href="cindy.html">Cindy Hoang Nguyen</a>
+      <a href="haotian.html">Haotian Shen</a>
+      <a href="zoey.html">Zoey Zhu</a>
+      
+    </nav>
+    <div class="drawer-footer">Graphic Design Thesis Exhibition 2026</div>
+  </div>
+  <div class="drawer-overlay" onclick="toggleMenu()"></div>
+  <!-- Content -->
+  <div class="page-wrap">
+    <h1 class="exhibitor-name">Haotian Shen</h1>
+  </div>
+
+  <div class="page-label">Haotian Shen</div>
+
+  <script>
+    // Highlight current page in drawer
+    document.querySelectorAll('.drawer nav a').forEach(a => {
+      if (a.getAttribute('href') === 'haotian.html') a.classList.add('active');
+    });
+
+    function toggleMenu() {
+      document.body.classList.toggle('menu-open');
+    }
+  </script>
+</body>
+</html>

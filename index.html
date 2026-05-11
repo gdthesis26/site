@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RESIST - Thesis Exhibition</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,700;1,400&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://use.typekit.net/vgh6ovw.css" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="is-home">
+
+  <!-- Nav -->
+  <button class="menu-btn" aria-label="Open menu" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </button>
+  <div class="drawer" role="navigation">
+    <h2>Exhibitors</h2>
+    <nav>
+      <a href="index.html" class="active">← Home</a>
+      <a href="lannie.html">Lannie Hong</a>
+      <a href="anny.html">Anny Long</a>
+      <a href="nina.html">Nina Mayne</a>
+      <a href="vivan.html">Vivan Nadkarni</a>
+      <a href="cindy.html">Cindy Hoang Nguyen</a>
+      <a href="haotian.html">Haotian Shen</a>
+      <a href="zoey.html">Zoey Zhu</a>
+      
+    </nav>
+    <div class="drawer-footer">Graphic Design Thesis Exhibition 2026</div>
+  </div>
+  <div class="drawer-overlay" onclick="toggleMenu()"></div>
+
+  <!-- Homepage -->
+  <div class="page-home">
+    <div class="ticker-wrap" id="tickerWrap"></div>
+    <div class="resist-wrap" aria-label="RESIST">
+      <div class="resist-letters">
+        <div class="resist-row">RE</div>
+        <div class="resist-row">SI</div>
+        <div class="resist-row">ST</div>
+      </div>
+    </div>
+  </div>
+
+  <script src="main.js"></script>
+</body>
+</html>

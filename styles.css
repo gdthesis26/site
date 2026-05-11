@@ -1,0 +1,225 @@
+/* ── FONTS ── */
+@font-face {
+  font-family: 'ABCBingo';
+  src: url('ABCBingoCondensed-Regular-Trial.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ── TOKENS ── */
+:root {
+  --color-1: #EE8B35;
+  --color-2: #E3D476;
+  --color-3: #970D67;
+  --color-4: #7A892E;
+  --color-5: #731515;
+  --color-6: #1B3068;
+  --color-7: #9ED5F1;
+  --bg: #ffffff;
+  --menu-width: 320px;
+}
+
+/* ── RESET ── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body {
+  width: 100%;
+  background: var(--bg);
+  overflow-x: hidden;
+  font-family: 'EB Garamond', serif;
+}
+
+/* index.html needs full-height lockdown; exhibitor pages scroll freely */
+body.is-home {
+  height: 100%;
+  overflow: hidden;
+}
+
+/* ── NAV — hamburger button ── */
+.menu-btn {
+  position: fixed;
+  top: 20px; left: 20px;
+  z-index: 200;
+  background: none; border: none; cursor: pointer;
+  display: flex; flex-direction: column;
+  gap: 5px; padding: 8px;
+}
+.menu-btn span {
+  display: block; width: 28px; height: 2px;
+  background: #000;
+  transition: transform .35s ease, opacity .35s ease;
+}
+body.menu-open .menu-btn span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+body.menu-open .menu-btn span:nth-child(2) { opacity: 0; }
+body.menu-open .menu-btn span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+/* ── NAV — slide-out drawer ── */
+.drawer {
+  position: fixed;
+  top: 0; left: 0;
+  width: var(--menu-width); max-width: 90vw;
+  height: 100%;
+  background: #000;
+  color: #fff;
+  z-index: 150;
+  transform: translateX(-100%);
+  transition: transform .4s cubic-bezier(.77,0,.175,1);
+  display: flex; flex-direction: column;
+  padding: 80px 36px 40px;
+}
+body.menu-open .drawer { transform: translateX(0); }
+
+.drawer-overlay {
+  position: fixed; inset: 0;
+  background: rgba(0,0,0,.4);
+  z-index: 140;
+  opacity: 0; pointer-events: none;
+  transition: opacity .4s ease;
+}
+body.menu-open .drawer-overlay { opacity: 1; pointer-events: all; }
+
+.drawer h2 {
+  font-family: 'Space Mono', monospace;
+  font-size: 10px;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.4);
+  margin-bottom: 32px;
+}
+
+.drawer nav a {
+  display: block;
+  font-family: 'EB Garamond', serif;
+  font-size: clamp(18px, 4vw, 22px);
+  color: #fff;
+  text-decoration: none;
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(255,255,255,.1);
+  transition: color .2s, letter-spacing .2s;
+}
+.drawer nav a:hover,
+.drawer nav a.active { color: #e63946; letter-spacing: .04em; }
+
+.drawer-footer {
+  margin-top: auto;
+  font-family: 'Space Mono', monospace;
+  font-size: 10px;
+  letter-spacing: .1em;
+  color: rgba(255,255,255,.2);
+  padding-bottom: 24px;
+}
+
+/* ── HOMEPAGE — full-screen ticker stage ── */
+.page-home {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  display: flex; align-items: center; justify-content: center;
+}
+
+/* ── HOMEPAGE — scrolling rows ── */
+.ticker-wrap {
+  position: absolute;
+  inset: 0;
+  display: flex; flex-direction: column;
+}
+
+.ticker-row {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  white-space: nowrap;
+  max-height: 13vh;
+}
+
+.ticker-track {
+  display: inline-flex;
+  align-items: center;
+}
+
+.ticker-row:nth-child(1) .ticker-track { color: var(--color-1); }
+.ticker-row:nth-child(2) .ticker-track { color: var(--color-2); }
+.ticker-row:nth-child(3) .ticker-track { color: var(--color-3); }
+.ticker-row:nth-child(4) .ticker-track { color: var(--color-4); }
+.ticker-row:nth-child(5) .ticker-track { color: var(--color-5); }
+.ticker-row:nth-child(6) .ticker-track { color: var(--color-6); }
+.ticker-row:nth-child(7) .ticker-track { color: var(--color-7); }
+
+.ticker-word {
+  font-family: "fig", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: clamp(24px, 5vw, 46px);
+  letter-spacing: .02em;
+  padding: 0 clamp(10px, 1.8vw, 24px);
+  line-height: 1;
+  user-select: none;
+}
+
+/* ── HOMEPAGE — RESIST overlay ── */
+.resist-wrap {
+  position: absolute;
+  inset: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.resist-letters {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.resist-row {
+  font-family: 'ABCBingo', sans-serif;
+  font-weight: normal;
+  font-size: clamp(80px, 23vw, 230px);
+  letter-spacing: .05em;
+  color: #000;
+  line-height: .88;
+  padding: 0 6px;
+  mix-blend-mode: difference;
+}
+
+@media (max-width: 600px) {
+  .resist-row {
+    font-size: 38vw;
+  }
+}
+
+/* ── EXHIBITOR PAGES ── */
+.page-wrap {
+  width: 100vw;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 80px 40px 60px;
+}
+
+.exhibitor-name {
+  font-family: 'EB Garamond', serif;
+  font-size: clamp(36px, 8vw, 80px);
+  font-style: italic;
+  color: #000;
+  letter-spacing: -.01em;
+  text-align: center;
+}
+
+.page-label {
+  position: fixed;
+  bottom: 28px; right: 28px;
+  font-family: 'Space Mono', monospace;
+  font-size: 10px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: rgba(0,0,0,.3);
+  pointer-events: none;
+}
