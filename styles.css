@@ -9,14 +9,7 @@
 
 /* ── TOKENS ── */
 :root {
-  --color-1: #EE8B35;
-  --color-2: #E3D476;
-  --color-3: #970D67;
-  --color-4: #7A892E;
-  --color-5: #731515;
-  --color-6: #1B3068;
-  --color-7: #9ED5F1;
-  --bg: #ffffff;
+  --bg: #FE9785;
   --menu-width: 320px;
 }
 
@@ -25,18 +18,19 @@
 
 html, body {
   width: 100%;
-  background: var(--bg);
+  background-color: var(--bg);
+  /* smooth color crossfade */
+  transition: background-color 1.2s ease;
   overflow-x: hidden;
-  font-family: 'EB Garamond', serif;
+  font-family: "lingua", sans-serif;
 }
 
-/* index.html needs full-height lockdown; exhibitor pages scroll freely */
 body.is-home {
   height: 100%;
   overflow: hidden;
 }
 
-/* ── NAV — hamburger button ── */
+/* ── NAV — hamburger ── */
 .menu-btn {
   position: fixed;
   top: 20px; left: 20px;
@@ -47,14 +41,14 @@ body.is-home {
 }
 .menu-btn span {
   display: block; width: 28px; height: 2px;
-  background: #000;
+  background: #fff;
   transition: transform .35s ease, opacity .35s ease;
 }
 body.menu-open .menu-btn span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
 body.menu-open .menu-btn span:nth-child(2) { opacity: 0; }
 body.menu-open .menu-btn span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
-/* ── NAV — slide-out drawer ── */
+/* ── NAV — drawer ── */
 .drawer {
   position: fixed;
   top: 0; left: 0;
@@ -90,7 +84,9 @@ body.menu-open .drawer-overlay { opacity: 1; pointer-events: all; }
 
 .drawer nav a {
   display: block;
-  font-family: 'EB Garamond', serif;
+  font-family: "lingua", sans-serif;
+  font-weight: 400;
+  font-style: normal;
   font-size: clamp(18px, 4vw, 22px);
   color: #fff;
   text-decoration: none;
@@ -110,20 +106,21 @@ body.menu-open .drawer-overlay { opacity: 1; pointer-events: all; }
   padding-bottom: 24px;
 }
 
-/* ── HOMEPAGE — full-screen ticker stage ── */
+/* ── HOMEPAGE — stage ── */
 .page-home {
   position: relative;
   width: 100vw;
   height: 100vh;
-  overflow: hidden;
   display: flex; align-items: center; justify-content: center;
 }
 
-/* ── HOMEPAGE — scrolling rows ── */
+/* ── TICKER ROWS ── */
 .ticker-wrap {
   position: absolute;
   inset: 0;
   display: flex; flex-direction: column;
+  justify-content: center;
+  gap: 0;
 }
 
 .ticker-row {
@@ -133,7 +130,24 @@ body.menu-open .drawer-overlay { opacity: 1; pointer-events: all; }
   align-items: center;
   overflow: hidden;
   white-space: nowrap;
-  max-height: 13vh;
+}
+
+@media (min-width: 601px) {
+  .ticker-row {
+    max-height: 13vh;
+  }
+}
+
+@media (max-width: 600px) {
+  .ticker-wrap {
+    justify-content: center;
+  }
+  .ticker-row {
+    flex: none;
+    height: calc(100vh / 7);
+    min-height: calc(100vh / 7);
+    max-height: calc(100vh / 7);
+  }
 }
 
 .ticker-track {
@@ -141,34 +155,46 @@ body.menu-open .drawer-overlay { opacity: 1; pointer-events: all; }
   align-items: center;
 }
 
-.ticker-row:nth-child(1) .ticker-track { color: var(--color-1); }
-.ticker-row:nth-child(2) .ticker-track { color: var(--color-2); }
-.ticker-row:nth-child(3) .ticker-track { color: var(--color-3); }
-.ticker-row:nth-child(4) .ticker-track { color: var(--color-4); }
-.ticker-row:nth-child(5) .ticker-track { color: var(--color-5); }
-.ticker-row:nth-child(6) .ticker-track { color: var(--color-6); }
-.ticker-row:nth-child(7) .ticker-track { color: var(--color-7); }
+/* All rows white */
+.ticker-track { color: #fff; }
 
 .ticker-word {
   font-family: "fig", sans-serif;
   font-weight: 400;
   font-style: normal;
-  font-size: clamp(24px, 5vw, 46px);
+  font-size: clamp(18px, 4vw, 42px);
   letter-spacing: .02em;
-  padding: 0 clamp(10px, 1.8vw, 24px);
+  padding: 0;
   line-height: 1;
   user-select: none;
+  white-space: nowrap;
 }
 
-/* ── HOMEPAGE — RESIST overlay ── */
+/* single-space separator between repeated phrases */
+.ticker-sep {
+  font-family: "fig", sans-serif;
+  font-size: clamp(18px, 4vw, 42px);
+  user-select: none;
+  white-space: pre;
+}
+
+/* mobile font size override — must come after base rules */
+@media (max-width: 600px) {
+  .ticker-word,
+  .ticker-sep {
+    font-size: 5.5vw;
+  }
+}
+
+/* ── RESIST OVERLAY ── */
 .resist-wrap {
   position: absolute;
   inset: 0;
-  z-index: 10;
   display: flex;
   align-items: center;
   justify-content: center;
   pointer-events: none;
+  /* no z-index — avoids creating a stacking context that blocks blend mode */
 }
 
 .resist-letters {
@@ -182,10 +208,10 @@ body.menu-open .drawer-overlay { opacity: 1; pointer-events: all; }
   font-weight: normal;
   font-size: clamp(80px, 23vw, 230px);
   letter-spacing: .05em;
-  color: #000;
+  color: #fff;
   line-height: .88;
   padding: 0 6px;
-  mix-blend-mode: difference;
+  mix-blend-mode: soft-light;
 }
 
 @media (max-width: 600px) {
@@ -205,10 +231,11 @@ body.menu-open .drawer-overlay { opacity: 1; pointer-events: all; }
 }
 
 .exhibitor-name {
-  font-family: 'EB Garamond', serif;
+  font-family: "lingua", sans-serif;
+  font-weight: 400;
+  font-style: normal;
   font-size: clamp(36px, 8vw, 80px);
-  font-style: italic;
-  color: #000;
+  color: #fff;
   letter-spacing: -.01em;
   text-align: center;
 }
@@ -220,6 +247,6 @@ body.menu-open .drawer-overlay { opacity: 1; pointer-events: all; }
   font-size: 10px;
   letter-spacing: .14em;
   text-transform: uppercase;
-  color: rgba(0,0,0,.3);
+  color: rgba(255,255,255,.4);
   pointer-events: none;
 }

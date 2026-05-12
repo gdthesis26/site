@@ -1,98 +1,71 @@
-const words = [
-  'transience', 'connection', 'awareness',
-  'mourning', 'focus', 'encryption', 'permanence',
+/* ─────────────────────────────────────────────
+   RESIST — Thesis Exhibition
+   main.js  |  homepage ticker + bg fade + menu
+───────────────────────────────────────────── */
+
+// Each row is one phrase (name + word), displayed as a repeating ticker
+const rows = [
+  'lannie yu permanence',
+  'cindy hoang nguyen transience',
+  'nina mayne connection',
+  'vivan nadkarni encryption',
+  'haotian shen imposition',
+  'anny long focus',
+  'zoey zhu mourning',
+];
+
+const colors = [
+  '#FE9785',
+  '#E8AC33',
+  '#A34988',
+  '#74960E',
+  '#85143B',
+  '#173345',
+  '#6FBECB',
 ];
 
 const wrap       = document.getElementById('tickerWrap');
 const tracks     = [];
-const directions = [1, -1, 1, -1, 1, -1, 1]; // 1 = left, -1 = right
+const directions = [1, -1, 1, -1, 1, -1, 1];
 const speeds     = [0.6, 0.85, 0.55, 0.75, 0.65, 0.9, 0.5];
 
-/* shuffle words */
-function shuffle(arr) {
-  const a = [...arr];
-  for (let i = a.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [a[i], a[j]] = [a[j], a[i]];
-  }
-  return a;
-}
-
-/* no repeat words next to each other */
-function shuffleSafe(arr, prevLast, nextFirst) {
-  let attempt;
-  let tries = 0;
-  do {
-    attempt = shuffle(arr);
-    tries++;
-  } while (
-    tries < 50 &&
-    (attempt[0] === prevLast || attempt[attempt.length - 1] === nextFirst)
-  );
-
-  if (attempt[0] === prevLast) {
-    const swapIdx = attempt.findIndex((w, i) => i > 0 && w !== prevLast);
-    [attempt[0], attempt[swapIdx]] = [attempt[swapIdx], attempt[0]];
-  }
-  if (attempt[attempt.length - 1] === nextFirst) {
-    const last = attempt.length - 1;
-    const swapIdx = attempt.findIndex((w, i) => i < last && w !== nextFirst);
-    [attempt[last], attempt[swapIdx]] = [attempt[swapIdx], attempt[last]];
-  }
-  return attempt;
-}
-
-/* rows of words */
-words.forEach((_, i) => {
-  const row   = document.createElement('div');
+/* ── BUILD ROWS ── */
+rows.forEach((phrase, i) => {
+  const row = document.createElement('div');
   row.className = 'ticker-row';
 
   const track = document.createElement('div');
   track.className = 'ticker-track';
 
-  /* no adjacent repeats */
-  const REPS = 6;
-  const sets = [];
+  // Repeat phrase enough times to fill screen width generously
+  const REPS = 20;
   for (let r = 0; r < REPS; r++) {
-    const prevLast  = r === 0 ? null : sets[r - 1][sets[r - 1].length - 1];
-    // nextFirst will be sets[0][0] for the last set (since we duplicate for looping)
-    // We don't know sets[0] yet for r===REPS-1, so pass null and fix after
-    const nextFirst = null;
-    sets.push(shuffleSafe(words, prevLast, nextFirst));
-  }
-
-  // Fix the seam between the last set and the first set (loop boundary)
-  const lastSet  = sets[REPS - 1];
-  const firstSet = sets[0];
-  if (lastSet[lastSet.length - 1] === firstSet[0]) {
-    // Swap the last element of the last set with any non-matching element
-    const last = lastSet.length - 1;
-    const swapIdx = lastSet.findLastIndex((w, idx) => idx < last && w !== firstSet[0]);
-    if (swapIdx !== -1) {
-      [lastSet[last], lastSet[swapIdx]] = [lastSet[swapIdx], lastSet[last]];
-    }
-  }
-
-
-  const sequence = sets.flat();
-  sequence.forEach(word => {
     const span = document.createElement('span');
-    span.className   = 'ticker-word';
-    span.textContent = word;
+    span.className = 'ticker-word';
+    span.textContent = phrase;
     track.appendChild(span);
-  });
 
-  track.innerHTML += track.innerHTML;
+    // single space separator
+    const sep = document.createElement('span');
+    sep.className = 'ticker-sep';
+    sep.textContent = ' ';
+    track.appendChild(sep);
+  }
+  track.innerHTML += track.innerHTML; // duplicate for seamless loop
 
   row.appendChild(track);
   wrap.appendChild(row);
   tracks.push({ track, dir: directions[i] });
 });
 
-/* animation */
+/* ── ANIMATION ── */
 let positions;
 
 function initPositions() {
+  positions = tracks.map(({ dir }) =>
+    dir === 1 ? 0 : tracks[0].track.scrollWidth / 2
+  );
+  // recalc per track since widths differ slightly
   positions = tracks.map(({ track, dir }) =>
     dir === 1 ? 0 : track.scrollWidth / 2
   );
@@ -112,7 +85,21 @@ function animate() {
 initPositions();
 animate();
 
-/* Menu */
+/* ── BACKGROUND COLOR FADE ── */
+let currentColor = 0;
+
+function cycleColor() {
+  const next = (currentColor + 1) % colors.length;
+  document.body.style.backgroundColor = colors[next];
+  currentColor = next;
+}
+
+// Set initial color instantly
+document.body.style.backgroundColor = colors[0];
+// Fade every 2.5s
+setInterval(cycleColor, 2500);
+
+/* ── MENU ── */
 function toggleMenu() {
   document.body.classList.toggle('menu-open');
 }
