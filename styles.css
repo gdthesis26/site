@@ -218,10 +218,14 @@ body.menu-open .drawer-overlay { opacity: 1; pointer-events: all; }
   padding: 0 6px;
   mix-blend-mode: soft-light;
 }
-
+ 
 @media (max-width: 600px) {
   .resist-row {
-    font-size: 38vw;
+    font-size: 46vw;
+  }
+  .resist-wrap {
+    align-items: center;
+    padding-bottom: 12vh;
   }
 }
 
