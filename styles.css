@@ -149,9 +149,9 @@ body.menu-open .drawer-overlay { opacity: 1; pointer-events: all; }
   }
   .ticker-row {
     flex: none;
-    height: calc(100vh / 7);
-    min-height: calc(100vh / 7);
-    max-height: calc(100vh / 7);
+    height: calc(100vh / 4.7);
+    min-height: calc(100vh / 4.7);
+    max-height: calc(100vh / 4.7);
   }
 }
 
@@ -187,7 +187,7 @@ body.menu-open .drawer-overlay { opacity: 1; pointer-events: all; }
 @media (max-width: 600px) {
   .ticker-word,
   .ticker-sep {
-    font-size: 5.5vw;
+    font-size: 8vw;
   }
 }
 
