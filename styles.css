@@ -146,12 +146,13 @@ body.menu-open .drawer-overlay { opacity: 1; pointer-events: all; }
 @media (max-width: 600px) {
   .ticker-wrap {
     justify-content: center;
+    overflow: visible;
   }
   .ticker-row {
-    flex: none;
-    height: calc(100vh / 4.7);
-    min-height: calc(100vh / 4.7);
-    max-height: calc(100vh / 4.7);
+    flex: none !important;
+    height: 21svh !important;
+    min-height: 21svh !important;
+    max-height: 21svh !important;
   }
 }
 
