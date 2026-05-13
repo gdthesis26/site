@@ -221,7 +221,7 @@ body.menu-open .drawer-overlay { opacity: 1; pointer-events: all; }
  
 @media (max-width: 600px) {
   .resist-row {
-    font-size: 46vw;
+    font-size: 50vw;
   }
   .resist-wrap {
     align-items: center;
