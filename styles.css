@@ -147,12 +147,13 @@ body.menu-open .drawer-overlay { opacity: 1; pointer-events: all; }
   .ticker-wrap {
     justify-content: center;
     overflow: visible;
+    gap: 0;
   }
   .ticker-row {
     flex: none !important;
-    height: 21svh !important;
-    min-height: 21svh !important;
-    max-height: 21svh !important;
+    height: 14svh !important;
+    min-height: 14svh !important;
+    max-height: 14svh !important;
   }
 }
 
@@ -188,7 +189,8 @@ body.menu-open .drawer-overlay { opacity: 1; pointer-events: all; }
 @media (max-width: 600px) {
   .ticker-word,
   .ticker-sep {
-    font-size: 8vw;
+    font-size: 11vw !important;
+    line-height: 1;
   }
 }
 
