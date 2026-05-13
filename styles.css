@@ -9,7 +9,7 @@
 
 /* ── TOKENS ── */
 :root {
-  --bg: #FE9785;
+  --bg: #f9faea;
   --menu-width: 320px;
 }
 
@@ -41,8 +41,11 @@ body.is-home {
 }
 .menu-btn span {
   display: block; width: 28px; height: 2px;
-  background: #f9faea;
+  background: #312f2f;
   transition: transform .35s ease, opacity .35s ease, background-color .35s ease;
+}
+body.is-home .menu-btn span {
+  background: #f9faea;
 }
 body.menu-open .menu-btn span {
   background: #312f2f;
@@ -249,18 +252,18 @@ body.menu-open .drawer-overlay { opacity: 1; pointer-events: all; }
   font-weight: normal;
   font-style: normal;
   font-size: clamp(36px, 8vw, 80px);
-  color: #fff;
+  color: #312f2f;
   letter-spacing: -.01em;
-  text-align: center;
 }
 
 .page-label {
   position: fixed;
   bottom: 28px; right: 28px;
-  font-family: 'Space Mono', monospace;
+  font-family: "lingua", sans-serif;
+  font-weight: 550;
   font-size: 10px;
   letter-spacing: .14em;
   text-transform: uppercase;
-  color: rgba(255,255,255,.4);
+  color: rgba(113, 105, 105, 0.356);
   pointer-events: none;
 }
