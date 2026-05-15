@@ -3,10 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Nina Mayne — RESIST Exhibition</title>
+  <title>Nina Mayne</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,700;1,400&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://use.typekit.net/vgh6ovw.css">
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
@@ -18,15 +19,14 @@
   <div class="drawer" role="navigation">
     <h2>Exhibitors</h2>
     <nav>
-      <a href="index.html" class="active">← Home</a>
-      <a href="anny.html">Anny Long</a>
-      <a href="nina.html">Nina Mayne</a>
-      <a href="vivan.html">Vivan Nadkarni</a>
-      <a href="cindy.html">Cindy Hoang Nguyen</a>
-      <a href="haotian.html">Haotian Shen</a>
-      <a href="lannie.html">Lannie Yu</a>
-      <a href="zoey.html">Zoey Zhu</a>
-      
+      <a href="index.html">← HOME</a>
+      <a href="haotian.html">HAOTIAN SHEN</a>
+      <a href="anny.html">ANNY LONG</a>
+      <a href="zoey.html">ZOEY ZHU</a>
+      <a href="lannie.html">LANNIE YU</a>
+      <a href="cindy.html">CINDY HOANG NGUYEN</a>
+      <a href="nina.html">NINA MAYNE</a>
+      <a href="vivan.html">VIVAN NADKARNI</a>
     </nav>
     <div class="drawer-footer">RESIST: Graphic Design Senior Show</div>
   </div>
@@ -34,19 +34,68 @@
 
   <!-- Content -->
   <div class="page-wrap">
-    <h1 class="exhibitor-name">Nina Mayne</h1>
+
+    <header class="exhibitor-header">
+      <h1 class="exhibitor-name">NINA MAYNE</h1>
+      <p class="exhibitor-word">CONNECTION as resistance</p>
+    </header>
+
+    <div class="exhibitor-body">
+
+        <!-- Installation -->
+      <div class="exhibitor-section exhibitor-section--full">
+        <p class="exhibitor-section-label">Installation Instructions</p>
+        <p>A minimum of two people is required to operate this piece. Before sitting, one participant should take the connected spoons from the wall while the other takes the table. The participant holding the spoons is encouraged to sit first so the second participant can rest the table securely across both laps. Once both participants are seated and supporting the table, the bowls beside the chairs should be placed onto the table.</p>
+<div class="section-more" hidden>
+<p>When finished, the bowls should be returned beside the chairs. Before standing, one participant should hold the table while the other takes the spoons. Both objects should then be returned to the hooks where they were originally stored.</p>
+      </div>
+      <button class="read-more-btn" onclick="toggleMore(this)">Read more</button>
+    </div>
+
+        <!-- Project -->
+      <div class="exhibitor-section">
+        <p class="exhibitor-section-label">Extended Project Description</p>
+        <p>For my thesis, I created tools that physically connect people through cooperation. I was interested in designing objects that require individuals to work together in order to function, bringing bodies into close proximity so participants experience one another through movement and presence. The tools resemble a dining set composed of a table, bowls, and connected spoons. The table only functions when two people sit beside one another and physically support it with their legs. The bowls depend on the table for stability, while the spoons are physically linked and can only be used successfully when both participants move together. Every element of the dining experience relies on cooperation, making eating impossible in isolation.</p>
+        <div class="section-more" hidden>
+          <p>Wrapped around the center of the table is a woven cloth bearing the phrase “treat with reverence.” The phrase acts as a reminder to approach the interaction with care, attentiveness, and respect for the person beside you. Participants must constantly adjust to one another’s movements, balancing their own needs with the needs of another person. This awkwardness becomes both humbling and intimate, creating heightened awareness of another body in space and emphasizing cooperation over individual control.</p>
+          <p>Food was chosen as the framework because eating is one of the most universal forms of human connection. Across cultures, communal dining creates rituals of intimacy, hospitality, and belonging. In a time marked by violence, isolation, and authoritarianism, fostering empathy, trust, and community becomes a form of resistance. This work proposes cooperation and mutual care as necessary practices for connection, solidarity, and survival.</p>
+        </div>
+        <button class="read-more-btn" onclick="toggleMore(this)">Read more</button>
+      </div>
+
+      <div class="exhibitor-section">
+        <p class="exhibitor-section-label">Biography</p>
+        <p>Nina Mayne is graduating from CCA with a degree in Communication Design and a minor in Ecological Practices. She is an interdisciplinary designer and artist from the Bay Area who believes creativity is rooted in community, diverse collaboration, and a desire to learn. Guided by conceptual thinking, she uses design to craft immersive experiences that connect with people emotionally through thoughtful communication.</p>
+        <div class="section-more" hidden>
+          <p>Growing up on the coast, Nina has a deep affinity for nature and the environment. She prioritises sustainability and is mindful of her impact on the world. Nina enjoys working with nonprofits, and most recently worked with San Francisco Bay Keeper on their “Keep Your Eyes on the Bay” campaign, which is on view currently in several BART stations and the San Francisco Bay Ferry.</p>
+          <p>Nina grew up doing ceramics and sculpture, and has been taking it more seriously since coming to CCA. She has become intrigued by incorporating different forms of media, like sculpture, video, sound, and lighting, into the design process to offer the viewer multiple opportunities to experience design.</p>
+          <p>Outside the studio, Nina enjoys discovering new influences, which she in turn incorporates back into her work. Presently, she enjoys going to concerts, discovering new films, and finding new restaurants to try with friends.</p>
+        </div>
+        <button class="read-more-btn" onclick="toggleMore(this)">Read more</button>
+      </div>
+
+    </div>
   </div>
 
-  <div class="page-label">Nina Mayne</div>
+  <div class="page-label">NINA MAYNE</div>
 
   <script>
-    // Highlight current page in drawer
     document.querySelectorAll('.drawer nav a').forEach(a => {
       if (a.getAttribute('href') === 'nina.html') a.classList.add('active');
     });
-
     function toggleMenu() {
       document.body.classList.toggle('menu-open');
+    }
+    function toggleMore(btn) {
+      const more = btn.previousElementSibling;
+      const isHidden = more.hasAttribute('hidden');
+      if (isHidden) {
+        more.removeAttribute('hidden');
+        btn.textContent = 'Read less';
+      } else {
+        more.setAttribute('hidden', '');
+        btn.textContent = 'Read more';
+      }
     }
   </script>
 </body>
