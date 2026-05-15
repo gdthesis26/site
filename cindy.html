@@ -3,12 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Cindy Hoang Nguyen — RESIST Exhibition</title>
+  <title>Cindy Hoang Nguyen</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,700;1,400&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
-  <script src="https://use.typekit.net/vgh6ovw.js"></script>
-  <script>try{Typekit.load({ async: true });}catch(e){}</script>
+  <link rel="stylesheet" href="https://use.typekit.net/vgh6ovw.css">
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
@@ -20,15 +19,14 @@
   <div class="drawer" role="navigation">
     <h2>Exhibitors</h2>
     <nav>
-      <a href="index.html" class="active">← Home</a>
-      <a href="anny.html">Anny Long</a>
-      <a href="nina.html">Nina Mayne</a>
-      <a href="vivan.html">Vivan Nadkarni</a>
-      <a href="cindy.html">Cindy Hoang Nguyen</a>
-      <a href="haotian.html">Haotian Shen</a>
-      <a href="lannie.html">Lannie Yu</a>
-      <a href="zoey.html">Zoey Zhu</a>
-      
+      <a href="index.html">← HOME</a>
+      <a href="haotian.html">HAOTIAN SHEN</a>
+      <a href="anny.html">ANNY LONG</a>
+      <a href="zoey.html">ZOEY ZHU</a>
+      <a href="lannie.html">LANNIE YU</a>
+      <a href="cindy.html">CINDY HOANG NGUYEN</a>
+      <a href="nina.html">NINA MAYNE</a>
+      <a href="vivan.html">VIVAN NADKARNI</a>
     </nav>
     <div class="drawer-footer">RESIST: Graphic Design Senior Show</div>
   </div>
@@ -36,19 +34,68 @@
 
   <!-- Content -->
   <div class="page-wrap">
-    <h1 class="exhibitor-name">Cindy Hoang Nguyen</h1>
+
+    <header class="exhibitor-header">
+      <h1 class="exhibitor-name">CINDY HOANG NGUYEN</h1>
+      <p class="exhibitor-word">resisting TRANSIENCE</p>
+    </header>
+
+    <div class="exhibitor-body">
+
+        <!-- Installation -->
+      <div class="exhibitor-section exhibitor-section--full">
+        <p class="exhibitor-section-label">Installation Instructions</p>
+        <p>To begin the experience, scan the QR code located on the left side of the wall using your phone. You will be directed to an interactive questionnaire consisting of five multiple-choice questions and one free response question. These prompts invite you to reflect on your personal relationship to loss, memory, uncertainty, and change. Once completed, your responses will be translated into a unique receipt collage generated specifically from the answers you provide.</p>
+<div class="section-more" hidden>
+<p>After finishing the questionnaire, head to the printer to collect your physical receipt collage. You may choose to keep the receipt with you as a personal artifact, or leave it behind and pin it onto the wall using the provided push pins.</p>
+      </div>
+      <button class="read-more-btn" onclick="toggleMore(this)">Read more</button>
+    </div>
+
+        <!-- Project -->
+      <div class="exhibitor-section">
+        <p class="exhibitor-section-label">Extended Project Description</p>
+        <p>What are you afraid of losing?</p>
+        <p>Transience is the impermanence that shapes our emotional lives. When experiencing loss, transition, or change, many are faced with the everlasting pressure to rigidly regulate emotions like a machine. During moments of instability, there is often a desire to maintain control, to preserve what feels safe, or to avoid the uncertainty that comes with change. How can we learn to accept and live with outcomes beyond our control, and how does this process differ across individuals?</p>
+        <div class="section-more" hidden>
+          <p>Resisting Transience starts with an interactive, browser-based questionnaire that invites visitors to reflect on their personal relationship to impermanence. Through five multiple-choice questions and one open-ended question, participants are asked to consider how their experiences with loss, memory, and uncertainty shape the ways they respond to change. Rather than receiving a fixed or diagnostic result, the questionnaire generates a fully unique and custom collage that reflects each participant’s responses.</p>
+          <p>This collage is then printed as a receipt, a format typically associated with documentation and proof, yet contains an aspect of disposability. However, thermal printing is inherently impermanent and the image will gradually fade over time. Each print becomes a temporary trace of presence, one that may be kept, discarded, or left behind for others. In this way, the installation fosters a shared space of vulnerability, where individual experiences accumulate and dissipate. By centering moments of discomfort, anxiety, and emotional strain, this project encourages visitors to acknowledge and sit with these feelings rather than avoid or suppress them. In doing so, Resisting Transience asks whether acceptance, rather than seeking control over the unknown, might offer an alternative way of responding to uncertainty.</p>
+        </div>
+        <button class="read-more-btn" onclick="toggleMore(this)">Read more</button>
+      </div>
+
+      <div class="exhibitor-section">
+        <p class="exhibitor-section-label">Biography</p>
+        <p>Cindy Hoang Nguyen is a versatile Graphic Designer from the Bay Area with experience in marketing, brand identity, print design, typography, and more. Her work centers on crafting memorable experiences through clarity and strong identity. She is currently a designer in the tech industry, where she contributes to a range of digital and print communications.</p>
+        <div class="section-more" hidden>
+          <p>As the daughter of Vietnamese refugees, her upbringing has played a significant role in shaping her design perspective, teaching her to approach challenges with resilience. Her ambition reflects the determination and creativity she has inherited from her roots, informing both her professional and personal work.</p>
+          <p>Beyond her professional practice, she seeks opportunities to collaborate with fellow artists and designers, particularly through non-profits and community-driven organizations. This interest extends into her personal work, where she creates multimedia pieces that often explore the intersection of emotion and technology. You can find her scavenging through thrift stores and scouring Facebook Marketplace to obtain outdated or discarded materials, sourced for very cheap or for free. As these fragments and materials are repurposed, they are given a second life as pieces that carry new meaning.</p>
+        </div>
+        <button class="read-more-btn" onclick="toggleMore(this)">Read more</button>
+      </div>
+
+    </div>
   </div>
 
-  <div class="page-label">Cindy Hoang Nguyen</div>
+  <div class="page-label">CINDY HOANG NGUYEN</div>
 
   <script>
-    // Highlight current page in drawer
     document.querySelectorAll('.drawer nav a').forEach(a => {
       if (a.getAttribute('href') === 'cindy.html') a.classList.add('active');
     });
-
     function toggleMenu() {
       document.body.classList.toggle('menu-open');
+    }
+    function toggleMore(btn) {
+      const more = btn.previousElementSibling;
+      const isHidden = more.hasAttribute('hidden');
+      if (isHidden) {
+        more.removeAttribute('hidden');
+        btn.textContent = 'Read less';
+      } else {
+        more.setAttribute('hidden', '');
+        btn.textContent = 'Read more';
+      }
     }
   </script>
 </body>
