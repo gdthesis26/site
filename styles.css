@@ -267,3 +267,88 @@ body.menu-open .drawer-overlay { opacity: 1; pointer-events: all; }
   color: rgba(113, 105, 105, 0.356);
   pointer-events: none;
 }
+
+/* ── EXHIBITOR PAGES ── */
+.page-wrap {
+  width: 100%;
+  min-height: 100vh;
+  padding: 0;
+  display: block;
+}
+ 
+/* Hero header */
+.exhibitor-header {
+  width: 100%;
+  padding: clamp(80px, 12vw, 140px) clamp(24px, 6vw, 80px) clamp(32px, 5vw, 60px);
+  border-bottom: 1px solid rgba(49, 47, 47, 0.15);
+}
+ 
+.exhibitor-name {
+  font-family: 'ABCBingo', sans-serif;
+  font-weight: normal;
+  font-style: normal;
+  font-size: clamp(48px, 12vw, 130px);
+  color: #312f2f;
+  letter-spacing: .02em;
+  text-transform: uppercase;
+  line-height: .88;
+  margin-bottom: clamp(12px, 2vw, 24px);
+}
+ 
+.exhibitor-word {
+  font-family: "fig-sans", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: clamp(14px, 2.5vw, 22px);
+  color: rgba(49, 47, 47, 0.45);
+  letter-spacing: .12em;
+}
+ 
+/* Body content */
+.exhibitor-body {
+  width: 100%;
+  padding: clamp(40px, 7vw, 100px) clamp(24px, 6vw, 80px) clamp(60px, 10vw, 120px);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(32px, 5vw, 80px);
+}
+ 
+@media (max-width: 700px) {
+  .exhibitor-body {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+}
+ 
+.exhibitor-section-label {
+  font-family: "lingua", sans-serif;
+  font-weight: 550;
+  font-size: 10px;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: rgba(49, 47, 47, 0.4);
+  margin-bottom: 16px;
+}
+ 
+.exhibitor-section p {
+  font-family: "lingua", sans-serif;
+  font-weight: 400;
+  font-size: clamp(15px, 1.8vw, 18px);
+  line-height: 1.7;
+  color: #312f2f;
+}
+ 
+.exhibitor-section p + p {
+  margin-top: 1em;
+}
+ 
+.page-label {
+  position: fixed;
+  bottom: 28px; right: 28px;
+  font-family: 'Space Mono', monospace;
+  font-size: 10px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: rgba(49, 47, 47, 0.25);
+  pointer-events: none;
+}
