@@ -299,9 +299,9 @@ body.menu-open .drawer-overlay { opacity: 1; pointer-events: all; }
   font-family: "fig-sans", sans-serif;
   font-weight: 400;
   font-style: normal;
-  font-size: clamp(14px, 2.5vw, 22px);
+  font-size: clamp(28px, 6.2vw, 100px);
   color: #312f2f;
-  letter-spacing: .12em;
+  letter-spacing: .01em;
 }
  
 /* Body content */
