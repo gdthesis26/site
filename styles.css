@@ -326,6 +326,13 @@ body.menu-open .drawer-overlay { opacity: 1; pointer-events: all; }
     border-bottom: none;
   }
 }
+
+.exhibitor-section--full {
+  grid-column: 1 / -1;
+  border-bottom: 1px solid rgba(49, 47, 47, 0.15);
+  padding-bottom: clamp(32px, 5vw, 60px);
+  margin-bottom: clamp(8px, 2vw, 20px);
+}
  
 .exhibitor-section-label {
   font-family: "lingua", sans-serif;
