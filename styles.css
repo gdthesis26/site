@@ -341,7 +341,33 @@ body.menu-open .drawer-overlay { opacity: 1; pointer-events: all; }
 .exhibitor-section p + p {
   margin-top: 1em;
 }
+
+
+.section-more p:first-child {
+  margin-top: 1em;
+}
  
+.read-more-btn {
+  margin-top: 16px;
+  background: none;
+  border: none;
+  border-bottom: 1px solid rgba(49, 47, 47, 0.35);
+  padding: 0 0 2px 0;
+  font-family: "lingua", sans-serif;
+  font-weight: 550;
+  font-size: 11px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: rgba(49, 47, 47, 0.5);
+  cursor: pointer;
+  transition: color .2s, border-color .2s;
+}
+ 
+.read-more-btn:hover {
+  color: #312f2f;
+  border-color: #312f2f;
+}
+
 .page-label {
   position: fixed;
   bottom: 28px; right: 28px;
