@@ -3,10 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Lannie Hong — RESIST Exhibition</title>
+  <title>Lannie Yu</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,700;1,400&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://use.typekit.net/vgh6ovw.css">
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
@@ -18,35 +19,80 @@
   <div class="drawer" role="navigation">
     <h2>Exhibitors</h2>
     <nav>
-      <a href="index.html" class="active">← Home</a>
-      <a href="anny.html">Anny Long</a>
-      <a href="nina.html">Nina Mayne</a>
-      <a href="vivan.html">Vivan Nadkarni</a>
-      <a href="cindy.html">Cindy Hoang Nguyen</a>
-      <a href="haotian.html">Haotian Shen</a>
-      <a href="lannie.html">Lannie Yu</a>
-      <a href="zoey.html">Zoey Zhu</a>
-      
+      <a href="index.html">← HOME</a>
+      <a href="haotian.html">HAOTIAN SHEN</a>
+      <a href="anny.html">ANNY LONG</a>
+      <a href="zoey.html">ZOEY ZHU</a>
+      <a href="lannie.html">LANNIE YU</a>
+      <a href="cindy.html">CINDY HOANG NGUYEN</a>
+      <a href="nina.html">NINA MAYNE</a>
+      <a href="vivan.html">VIVAN NADKARNI</a>
     </nav>
     <div class="drawer-footer">RESIST: Graphic Design Senior Show</div>
   </div>
   <div class="drawer-overlay" onclick="toggleMenu()"></div>
-  
+
   <!-- Content -->
   <div class="page-wrap">
-    <h1 class="exhibitor-name">Lannie Hong</h1>
+
+    <header class="exhibitor-header">
+      <h1 class="exhibitor-name">LANNIE YU</h1>
+      <p class="exhibitor-word">PERMANENCE as resistance</p>
+    </header>
+
+    <div class="exhibitor-body">
+
+        <!-- Installation -->
+      <div class="exhibitor-section exhibitor-section--full">
+        <p class="exhibitor-section-label">Installation Instructions</p>
+        <p>The first component of this installation is a book displayed on a pedestal, which collects tattoos from fifteen CCA students alongside short written reflections about the reasons behind each mark. Visitors are encouraged to flip through the book at their own pace before moving to the second component.</p>
+<div class="section-more" hidden>
+<p>The second component is set up on a separate table/pedestal and uses stencil transfer paper, the material tattoo artists use to place a design onto skin before it becomes permanent. This part of the installation invites visitors to engage with the same questions the book raises by responding personally.</p>
+<p>Visitors should take one sheet of stencil transfer paper and a pen, respond to the prompt by directly drawing on the top sheet, pressing firmly. From there, a small drop of stencil gel should be applied onto the desired area of the skin wall or their own skin. Then, take the very bottom layer sheet, and press down where the gel was applied.</p>
+      </div>
+      <button class="read-more-btn" onclick="toggleMore(this)">Read more</button>
+    </div>
+
+        <!-- Project -->
+      <div class="exhibitor-section">
+        <p class="exhibitor-section-label">Extended Project Description</p>
+        <p>Tattooing is an act of resistance against impermanence, a way of holding onto something on the body that would otherwise fade. This project looks at what it means to choose to make something stay when most experiences are temporary and constantly changing. Whether it's a moment, a relationship, or a period of life, there's something difficult about accepting that things change or end. Tattooing is a practice entirely built around the decision to hold onto something so deliberately that you put it on your body permanently. The questions guiding this project are: what does it mean to fix a moment, a person, or a feeling onto the body, and what are we resisting when we choose permanence?</p>
+        <div class="section-more" hidden>
+          <p>This book collects tattoos from fifteen CCA students alongside short written reflections about the reasons behind each mark. Rather than focusing on tattooing as a concept, it focuses on the people behind them and the stories that give each tattoo its meaning. Some tattoos were tied to people, some to memories, some to identity, some to spontaneous decisions that took on meaning over time. The range of motivations was wide, and going through all of those stories revealed how differently the decision to make something permanent can look from person to person.</p>
+          <p>Alongside the book, a second component uses stencil transfer paper, the material tattoo artists use before a design becomes permanent. It puts the viewer in the same position as the people in this book, having to identify something worth keeping and place it onto skin. After moving through fifteen people's stories, you are faced with the same question they were: what would you resist losing?</p>
+        </div>
+        <button class="read-more-btn" onclick="toggleMore(this)">Read more</button>
+      </div>
+
+      <div class="exhibitor-section">
+        <p class="exhibitor-section-label">Biography</p>
+        <p>Lannie Yu is a Seattle-based graphic design student in the BFA program at California College of the Arts in San Francisco.</p>
+        </div>
+        <button class="read-more-btn" onclick="toggleMore(this)">Read more</button>
+      </div>
+
+    </div>
   </div>
 
-  <div class="page-label">Lannie Hong</div>
+  <div class="page-label">LANNIE YU</div>
 
   <script>
-    // Highlight current page in drawer
     document.querySelectorAll('.drawer nav a').forEach(a => {
       if (a.getAttribute('href') === 'lannie.html') a.classList.add('active');
     });
-
     function toggleMenu() {
       document.body.classList.toggle('menu-open');
+    }
+    function toggleMore(btn) {
+      const more = btn.previousElementSibling;
+      const isHidden = more.hasAttribute('hidden');
+      if (isHidden) {
+        more.removeAttribute('hidden');
+        btn.textContent = 'Read less';
+      } else {
+        more.setAttribute('hidden', '');
+        btn.textContent = 'Read more';
+      }
     }
   </script>
 </body>
