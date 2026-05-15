@@ -1,17 +1,11 @@
-/* ─────────────────────────────────────────────
-   RESIST — Thesis Exhibition
-   main.js  |  homepage ticker + bg fade + menu
-───────────────────────────────────────────── */
-
-// Each row is one phrase (name + word), displayed as a repeating ticker
 const rows = [
   'lannie yu permanence',
   'cindy hoang nguyen transience',
   'nina mayne connection',
   'vivan nadkarni encryption',
   'haotian shen imposition',
-  'anny long focus',
   'zoey zhu mourning',
+  'anny long focus',
 ];
 
 const colors = [
