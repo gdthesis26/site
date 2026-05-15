@@ -316,7 +316,14 @@ body.menu-open .drawer-overlay { opacity: 1; pointer-events: all; }
 @media (max-width: 700px) {
   .exhibitor-body {
     grid-template-columns: 1fr;
-    gap: 40px;
+    gap: 0;
+  }
+  .exhibitor-section {
+    padding: clamp(32px, 6vw, 60px) 0;
+    border-bottom: 1px solid rgba(49, 47, 47, 0.15);
+  }
+  .exhibitor-section:last-child {
+    border-bottom: none;
   }
 }
  
@@ -341,8 +348,7 @@ body.menu-open .drawer-overlay { opacity: 1; pointer-events: all; }
 .exhibitor-section p + p {
   margin-top: 1em;
 }
-
-
+ 
 .section-more p:first-child {
   margin-top: 1em;
 }
@@ -367,7 +373,7 @@ body.menu-open .drawer-overlay { opacity: 1; pointer-events: all; }
   color: #312f2f;
   border-color: #312f2f;
 }
-
+ 
 .page-label {
   position: fixed;
   bottom: 28px; right: 28px;
