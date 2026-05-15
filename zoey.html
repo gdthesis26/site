@@ -3,10 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Zoey Zhu — RESIST Exhibition</title>
+  <title>Zoey Zhu</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,700;1,400&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://use.typekit.net/vgh6ovw.css">
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
@@ -18,15 +19,14 @@
   <div class="drawer" role="navigation">
     <h2>Exhibitors</h2>
     <nav>
-      <a href="index.html" class="active">← Home</a>
-      <a href="anny.html">Anny Long</a>
-      <a href="nina.html">Nina Mayne</a>
-      <a href="vivan.html">Vivan Nadkarni</a>
-      <a href="cindy.html">Cindy Hoang Nguyen</a>
-      <a href="haotian.html">Haotian Shen</a>
-      <a href="lannie.html">Lannie Yu</a>
-      <a href="zoey.html">Zoey Zhu</a>
-      
+      <a href="index.html">← HOME</a>
+      <a href="haotian.html">HAOTIAN SHEN</a>
+      <a href="anny.html">ANNY LONG</a>
+      <a href="zoey.html">ZOEY ZHU</a>
+      <a href="lannie.html">LANNIE YU</a>
+      <a href="cindy.html">CINDY HOANG NGUYEN</a>
+      <a href="nina.html">NINA MAYNE</a>
+      <a href="vivan.html">VIVAN NADKARNI</a>
     </nav>
     <div class="drawer-footer">RESIST: Graphic Design Senior Show</div>
   </div>
@@ -34,19 +34,69 @@
 
   <!-- Content -->
   <div class="page-wrap">
-    <h1 class="exhibitor-name">Zoey Zhu</h1>
+
+    <header class="exhibitor-header">
+      <h1 class="exhibitor-name">ZOEY ZHU</h1>
+      <p class="exhibitor-word">MOURNING as resistance</p>
+    </header>
+
+    <div class="exhibitor-body">
+
+        <!-- Installation -->
+      <div class="exhibitor-section exhibitor-section--full">
+        <p class="exhibitor-section-label">Installation Instructions</p>
+        <p>Time for a Goodbye is designed as an intimate, self-guided experience. Visitors are welcome to sit with the kit, handle the booklet, and move through the ritual at their own pace.
+Each section of the booklet is displayed separately so the individual components and steps of the ritual can be seen more clearly. Visitors may open the booklet, unfold a cake slice, examine the paper stones, and set up the small funeral backdrop to understand how the ritual works.</p>
+
+<div class="section-more" hidden>
+  <p>The kit is meant to be touched and handled. The cake slices, stones, envelope, backdrop, and printed materials are all interactive parts of the experience. There is no correct order or required amount of time. Visitors are encouraged to pause, read slowly, and return to different sections as they wish.
+Please do not burn the stones during the exhibition. The burning ritual is intended as a private closing gesture for the future owner of the kit, rather than a public performance.</p>
+      </div>
+      <button class="read-more-btn" onclick="toggleMore(this)">Read more</button>
+    </div>
+
+        <!-- Project -->
+      <div class="exhibitor-section">
+        <p class="exhibitor-section-label">Project</p>
+        <p>Some endings happen before we are ready to say goodbye. A friendship fades. A city is left behind. A shop closes. A version of yourself disappears. These endings are real, yet they often pass without acknowledgment, buried in everyday life, unfinished and unwitnessed.</p>
+        <div class="section-more" hidden>
+          <p>Time for a Goodbye is a paper ritual kit for people who did not know it was the last time.</p>
+          <p>Inspired by an exhibition in Chengdu that held a funeral for closed small businesses, and by the Chinese practice of burning paper offerings for the dead, this project asks: what if quiet endings were treated with the same care we give to death? What if we made space to say, clearly and honestly: this happened, and now I can let go?</p>
+          <p>The kit includes a handmade booklet of eight foldable cake slices, paper stones, a funeral backdrop, and simple tools for writing and keeping. Each ritual is done slowly, one at a time. The user writes what they want to release on a paper stone, places it onto the cake, and sits with it inside a small funeral scene inspired by the Chinese mourning hall. There is no right amount of time.</p>
+          <p>Over time, the slices accumulate into a full cake. When all eight rituals are complete, the stones are burned together as a closing gesture, while the finished cake remains.</p>
+          <p>The cake draws from birthday rituals that celebrate life and mark the passing of time. But the dead only have an anniversary. This is the cake they never had.</p>
+          <p>Time for a Goodbye treats mourning as a quiet form of resistance: a refusal to let an ending disappear without witness.</p>
+        </div>
+        <button class="read-more-btn" onclick="toggleMore(this)">Read more</button>
+      </div>
+
+      <div class="exhibitor-section">
+        <p class="exhibitor-section-label">Biography</p>
+        <p>Zoey Zhu is a Chengdu-based interdisciplinary designer and a CCA senior earning a BFA in Graphic Design.</p>
+      </div>
+
+    </div>
   </div>
 
-  <div class="page-label">Zoey Zhu</div>
+  <div class="page-label">ZOEY ZHU</div>
 
   <script>
-    // Highlight current page in drawer
     document.querySelectorAll('.drawer nav a').forEach(a => {
       if (a.getAttribute('href') === 'zoey.html') a.classList.add('active');
     });
-
     function toggleMenu() {
       document.body.classList.toggle('menu-open');
+    }
+    function toggleMore(btn) {
+      const more = btn.previousElementSibling;
+      const isHidden = more.hasAttribute('hidden');
+      if (isHidden) {
+        more.removeAttribute('hidden');
+        btn.textContent = 'Read less';
+      } else {
+        more.setAttribute('hidden', '');
+        btn.textContent = 'Read more';
+      }
     }
   </script>
 </body>
