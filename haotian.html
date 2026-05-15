@@ -1,66 +1,354 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Haotian Shen</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,700;1,400&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="https://use.typekit.net/vgh6ovw.css">
-  <link rel="stylesheet" href="styles.css" />
-</head>
-<body>
+/* ── FONTS ── */
+@font-face {
+  font-family: 'ABCBingo';
+  src: url('ABCBingoCondensed-Regular-Trial.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
 
-  <!-- Nav -->
-  <button class="menu-btn" aria-label="Open menu" onclick="toggleMenu()">
-    <span></span><span></span><span></span>
-  </button>
-  <div class="drawer" role="navigation">
-    <h2>Exhibitors</h2>
-    <nav>
-      <a href="index.html" class="active">← HOME</a>
-      <a href="haotian.html">HAOTIAN SHEN</a>
-      <a href="anny.html">ANNY LONG</a>
-      <a href="zoey.html">ZOEY ZHU</a>
-      <a href="lannie.html">LANNIE YU</a>
-      <a href="cindy.html">CINDY HOANG NGUYEN</a>
-      <a href="nina.html">NINA MAYNE</a>
-      <a href="vivan.html">VIVAN NADKARNI</a> 
-    </nav>
-    <div class="drawer-footer">RESIST: Graphic Design Senior Show</div>
-  </div>
-  <div class="drawer-overlay" onclick="toggleMenu()"></div>
+/* ── TOKENS ── */
+:root {
+  --bg: #f9faea;
+  --menu-width: 320px;
+}
 
-  <!-- Content -->
-  <div class="page-wrap">
+/* ── RESET ── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-    <header class="exhibitor-header">
-      <h1 class="exhibitor-name">HAOTIAN SHEN</h1>
-      <p class="exhibitor-word">resisting IMPOSITION</p>
-    </header>
+html, body {
+  width: 100%;
+  background-color: var(--bg);
+  /* smooth color crossfade */
+  transition: background-color 1.2s ease;
+  overflow-x: hidden;
+  font-family: "lingua", sans-serif;
+}
 
-    <div class="exhibitor-body">
+body.is-home {
+  height: 100%;
+  overflow: hidden;
+}
 
-      <div class="exhibitor-section">
-        <p class="exhibitor-section-label">Project</p>
-        <p>This project explores how external expectations, spoken through everyday language, shape and distort personal identity. Comments from parents, peers, and society often appear subtle, yet they gradually become internalized, replacing one’s own voice with those of others. The installation creates an enclosed, darkened space where fragmented phrases are projected onto the surrounding walls through a central light structure. These phrases are drawn from real statements, reflecting pressures related to behavior, success, relationships, and self-worth.</p>
-        <p>As viewers enter the space, they are surrounded by these voices while listening to audio that reveals the emotional and psychological impact of such expectations. The visual and auditory layers work together to simulate the experience of being shaped by others’ perceptions. Over time, the work raises a critical question: when external voices become dominant, what remains of the self?</p>
-        <p>By making these invisible pressures visible and immersive, the project invites viewers to recognize, question, and ultimately resist the forces that attempt to define who they should be.</p>
-      </div>
+/* ── NAV — hamburger ── */
+.menu-btn {
+  position: fixed;
+  top: 20px; left: 20px;
+  z-index: 200;
+  background: none; border: none; cursor: pointer;
+  display: flex; flex-direction: column;
+  gap: 5px; padding: 8px;
+}
+.menu-btn span {
+  display: block; width: 28px; height: 2px;
+  background: #312f2f;
+  transition: transform .35s ease, opacity .35s ease, background-color .35s ease;
+}
+body.is-home .menu-btn span {
+  background: #f9faea;
+}
+body.menu-open .menu-btn span {
+  background: #312f2f;
+}
+body.menu-open .menu-btn span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+body.menu-open .menu-btn span:nth-child(2) { opacity: 0; }
+body.menu-open .menu-btn span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
-    </div>
-  </div>
+/* ── NAV — drawer ── */
+.drawer {
+  position: fixed;
+  top: 0; left: 0;
+  width: var(--menu-width); max-width: 90vw;
+  height: 100%;
+  background: #f9faea;
+  color: #312f2f;
+  z-index: 150;
+  transform: translateX(-100%);
+  transition: transform .4s cubic-bezier(.77,0,.175,1);
+  display: flex; flex-direction: column;
+  padding: 80px 36px 40px;
+}
+body.menu-open .drawer { transform: translateX(0); }
 
-  <div class="page-label">HAOTIAN SHEN</div>
+.drawer-overlay {
+  position: fixed; inset: 0;
+  background: rgba(0,0,0,.4);
+  z-index: 140;
+  opacity: 0; pointer-events: none;
+  transition: opacity .4s ease;
+}
+body.menu-open .drawer-overlay { opacity: 1; pointer-events: all; }
 
-  <script>
-    document.querySelectorAll('.drawer nav a').forEach(a => {
-      if (a.getAttribute('href') === 'cindy.html') a.classList.add('active');
-    });
-    function toggleMenu() {
-      document.body.classList.toggle('menu-open');
-    }
-  </script>
-</body>
-</html>
+.drawer h2 {
+  font-family: "lingua", sans-serif;
+  font-weight: 550;
+  font-size: 10px;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: rgba(113, 105, 105, 0.696);
+  margin-bottom: 32px;
+}
+
+.drawer nav a {
+  display: block;
+  font-family: 'ABCBingo', sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: clamp(18px, 4vw, 22px);
+  color: #312f2f;
+  text-decoration: none;
+  padding: 10px 0;
+  border-bottom: 1.3px solid rgba(113, 105, 105, 0.356);
+  transition: color .2s, letter-spacing .2s;
+}
+.drawer nav a:hover,
+.drawer nav a.active { letter-spacing: .04em; }
+
+.drawer-footer {
+  margin-top: auto;
+  font-family: "lingua", sans-serif;
+  font-weight: 550;
+  font-size: 10px;
+  letter-spacing: .1em;
+  color: rgba(113, 105, 105, 0.696);
+  padding-bottom: 24px;
+}
+
+/* ── HOMEPAGE — stage ── */
+.page-home {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  display: flex; align-items: center; justify-content: center;
+}
+
+/* ── TICKER ROWS ── */
+.ticker-wrap {
+  position: absolute;
+  inset: 0;
+  display: flex; flex-direction: column;
+  justify-content: center;
+  gap: 0;
+}
+
+.ticker-row {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+@media (min-width: 601px) {
+  .ticker-row {
+    max-height: 13vh;
+  }
+}
+
+@media (max-width: 600px) {
+  .ticker-wrap {
+    justify-content: space-around;
+    overflow: hidden;
+    gap: 0;
+  }
+  .ticker-row {
+    flex: 1 0 0 !important;
+    height: auto !important;
+    min-height: 0 !important;
+    max-height: none !important;
+    overflow: visible;
+  }
+}
+
+.ticker-track {
+  display: inline-flex;
+  align-items: center;
+}
+
+/* All rows white */
+.ticker-track { color: #f9faea; }
+
+.ticker-word {
+  font-family: "fig-sans", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: clamp(24px, 6vw, 50px);
+  letter-spacing: .02em;
+  padding: 0;
+  line-height: 1;
+  user-select: none;
+  white-space: nowrap;
+}
+
+/* single-space separator between repeated phrases */
+.ticker-sep {
+  font-family: "fig-sans", sans-serif;
+  font-size: clamp(18px, 4vw, 42px);
+  user-select: none;
+  white-space: pre;
+}
+
+/* mobile font size override — must come after base rules */
+@media (max-width: 600px) {
+  .ticker-word,
+  .ticker-sep {
+    font-size: 11vw !important;
+    line-height: 1;
+  }
+}
+
+/* ── RESIST OVERLAY ── */
+.resist-wrap {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  /* no z-index — avoids creating a stacking context that blocks blend mode */
+}
+
+.resist-letters {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.resist-row {
+  font-family: 'ABCBingo', sans-serif;
+  font-weight: normal;
+  font-size: clamp(80px, 23vw, 230px);
+  letter-spacing: .05em;
+  color: #fff;
+  line-height: .88;
+  padding: 0 6px;
+  mix-blend-mode: soft-light;
+}
+ 
+@media (max-width: 600px) {
+  .resist-row {
+    font-size: 58vw;
+    line-height: .82;
+  }
+  .resist-wrap {
+    align-items: center;
+    padding-bottom: 12vh;
+  }
+}
+
+/* ── EXHIBITOR PAGES ── */
+.page-wrap {
+  width: 100vw;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 80px 40px 60px;
+}
+
+.exhibitor-name {
+  font-family: 'ABCBingo', sans-serif;
+  font-weight: normal;
+  font-style: normal;
+  font-size: clamp(36px, 8vw, 80px);
+  color: #312f2f;
+  letter-spacing: -.01em;
+}
+
+.page-label {
+  position: fixed;
+  bottom: 28px; right: 28px;
+  font-family: "lingua", sans-serif;
+  font-weight: 550;
+  font-size: 10px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: rgba(113, 105, 105, 0.356);
+  pointer-events: none;
+}
+
+/* ── EXHIBITOR PAGES ── */
+.page-wrap {
+  width: 100%;
+  min-height: 100vh;
+  padding: 0;
+  display: block;
+}
+ 
+/* Hero header */
+.exhibitor-header {
+  width: 100%;
+  padding: clamp(80px, 12vw, 140px) clamp(24px, 6vw, 80px) clamp(32px, 5vw, 60px);
+  border-bottom: 1px solid rgba(49, 47, 47, 0.15);
+}
+ 
+.exhibitor-name {
+  font-family: 'ABCBingo', sans-serif;
+  font-weight: normal;
+  font-style: normal;
+  font-size: clamp(48px, 12vw, 130px);
+  color: #312f2f;
+  letter-spacing: .02em;
+  text-transform: uppercase;
+  line-height: .88;
+  margin-bottom: clamp(12px, 2vw, 24px);
+}
+ 
+.exhibitor-word {
+  font-family: "fig-sans", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: clamp(14px, 2.5vw, 22px);
+  color: #312f2f;
+  letter-spacing: .12em;
+}
+ 
+/* Body content */
+.exhibitor-body {
+  width: 100%;
+  padding: clamp(40px, 7vw, 100px) clamp(24px, 6vw, 80px) clamp(60px, 10vw, 120px);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(32px, 5vw, 80px);
+}
+ 
+@media (max-width: 700px) {
+  .exhibitor-body {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+}
+ 
+.exhibitor-section-label {
+  font-family: "lingua", sans-serif;
+  font-weight: 550;
+  font-size: 10px;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: rgba(49, 47, 47, 0.4);
+  margin-bottom: 16px;
+}
+ 
+.exhibitor-section p {
+  font-family: "lingua", sans-serif;
+  font-weight: 400;
+  font-size: clamp(15px, 1.8vw, 18px);
+  line-height: 1.7;
+  color: #312f2f;
+}
+ 
+.exhibitor-section p + p {
+  margin-top: 1em;
+}
+ 
+.page-label {
+  position: fixed;
+  bottom: 28px; right: 28px;
+  font-family: 'Space Mono', monospace;
+  font-size: 10px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: rgba(49, 47, 47, 0.25);
+  pointer-events: none;
+}
