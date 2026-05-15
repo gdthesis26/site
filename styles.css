@@ -391,3 +391,40 @@ body.menu-open .drawer-overlay { opacity: 1; pointer-events: all; }
   color: rgba(49, 47, 47, 0.25);
   pointer-events: none;
 }
+
+/* ── EXHIBITOR NAVIGATION ── */
+.exhibitor-pagination {
+  width: 100%;
+  padding: 0 clamp(24px, 6vw, 80px) 80px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+}
+
+.exhibitor-pagination a {
+  font-family: 'ABCBingo', sans-serif;
+  font-size: clamp(18px, 3vw, 28px);
+  color: #312f2f;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: opacity .2s ease, transform .2s ease;
+}
+
+.exhibitor-pagination a:hover {
+  opacity: 0.6;
+}
+
+.exhibitor-pagination .next-link {
+  margin-left: auto;
+}
+
+@media (max-width: 600px) {
+  .exhibitor-pagination {
+    padding-bottom: 120px;
+  }
+
+  .exhibitor-pagination a {
+    font-size: 18px;
+  }
+}
