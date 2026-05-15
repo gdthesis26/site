@@ -3,10 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Haotian Shen — RESIST Exhibition</title>
+  <title>Haotian Shen</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,700;1,400&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://use.typekit.net/vgh6ovw.css">
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
@@ -15,35 +16,48 @@
   <button class="menu-btn" aria-label="Open menu" onclick="toggleMenu()">
     <span></span><span></span><span></span>
   </button>
- <div class="drawer" role="navigation">
+  <div class="drawer" role="navigation">
     <h2>Exhibitors</h2>
     <nav>
-      <a href="index.html" class="active">← Home</a>
-      <a href="anny.html">Anny Long</a>
-      <a href="nina.html">Nina Mayne</a>
-      <a href="vivan.html">Vivan Nadkarni</a>
-      <a href="cindy.html">Cindy Hoang Nguyen</a>
-      <a href="haotian.html">Haotian Shen</a>
-      <a href="lannie.html">Lannie Yu</a>
-      <a href="zoey.html">Zoey Zhu</a>
-      
+      <a href="index.html" class="active">← HOME</a>
+      <a href="haotian.html">HAOTIAN SHEN</a>
+      <a href="anny.html">ANNY LONG</a>
+      <a href="zoey.html">ZOEY ZHU</a>
+      <a href="lannie.html">LANNIE YU</a>
+      <a href="cindy.html">CINDY HOANG NGUYEN</a>
+      <a href="nina.html">NINA MAYNE</a>
+      <a href="vivan.html">VIVAN NADKARNI</a> 
     </nav>
     <div class="drawer-footer">RESIST: Graphic Design Senior Show</div>
   </div>
   <div class="drawer-overlay" onclick="toggleMenu()"></div>
+
   <!-- Content -->
   <div class="page-wrap">
-    <h1 class="exhibitor-name">Haotian Shen</h1>
+
+    <header class="exhibitor-header">
+      <h1 class="exhibitor-name">HAOTIAN SHEN</h1>
+      <p class="exhibitor-word">resisting IMPOSITION</p>
+    </header>
+
+    <div class="exhibitor-body">
+
+      <div class="exhibitor-section">
+        <p class="exhibitor-section-label">Project</p>
+        <p>This project explores how external expectations, spoken through everyday language, shape and distort personal identity. Comments from parents, peers, and society often appear subtle, yet they gradually become internalized, replacing one’s own voice with those of others. The installation creates an enclosed, darkened space where fragmented phrases are projected onto the surrounding walls through a central light structure. These phrases are drawn from real statements, reflecting pressures related to behavior, success, relationships, and self-worth.</p>
+        <p>As viewers enter the space, they are surrounded by these voices while listening to audio that reveals the emotional and psychological impact of such expectations. The visual and auditory layers work together to simulate the experience of being shaped by others’ perceptions. Over time, the work raises a critical question: when external voices become dominant, what remains of the self?</p>
+        <p>By making these invisible pressures visible and immersive, the project invites viewers to recognize, question, and ultimately resist the forces that attempt to define who they should be.</p>
+      </div>
+
+    </div>
   </div>
 
-  <div class="page-label">Haotian Shen</div>
+  <div class="page-label">HAOTIAN SHEN</div>
 
   <script>
-    // Highlight current page in drawer
     document.querySelectorAll('.drawer nav a').forEach(a => {
-      if (a.getAttribute('href') === 'haotian.html') a.classList.add('active');
+      if (a.getAttribute('href') === 'cindy.html') a.classList.add('active');
     });
-
     function toggleMenu() {
       document.body.classList.toggle('menu-open');
     }
